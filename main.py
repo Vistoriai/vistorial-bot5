@@ -4,10 +4,13 @@ from fastapi.responses import JSONResponse
 app = FastAPI()
 
 @app.get("/")
-async def home():
-    return JSONResponse({"status": "API Online - VistoriAI"})
+async def root():
+    return JSONResponse(
+        {"status": "Online", "app": "VistoriAI"},
+        status_code=200  # Isso evita o 404
+    )
 
-# ESSA ROTA É OBRIGATÓRIA PARA O VERCEL
+# Rota obrigatória para o Vercel
 @app.get("/api/status")
-async def vercel_check():
-    return JSONResponse({"deploy": "success"})
+async def status():
+    return {"deploy": "success"}
