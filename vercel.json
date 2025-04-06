@@ -3,7 +3,6 @@
   "builds": [{"src": "main.py", "use": "@vercel/python"}],
   "routes": [
     {"src": "/", "dest": "/"},
-    {"src": "/api/.*", "dest": "/api/status"},
-    {"src": "/webhook", "methods": ["POST"], "dest": "/webhook"}
+    {"src": "/api/.*", "dest": "/api/status"}
   ]
 }
